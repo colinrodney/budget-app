@@ -1,15 +1,21 @@
 import React from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 import "bootstrap/dist/css/bootstrap.min.css"
 
 
-
+// ZIP CODE FORM COMPONENT
 function App(){
-  return "hello world"
+  return (
+      <form action="" id="searchForm">
+          <label for="zipCode">Zip Code:</label>
+          <input type="text" name="zip" id="zipCodeField"></ input>
+          <input type ="submit" value ="get weather" id="searchButton"></ input>
+      </form>
+  );
 }
 
-export default App;
+export { App };
 
 
 
@@ -46,7 +52,7 @@ export default App;
 
 
 
-// function App() {
+/* // function App() {
 //     return (
 //       <div className="App">
 //         <header className="App-headernpm">
@@ -66,4 +72,4 @@ export default App;
 //       </div>
 //     );
 //   }
-  
+   */
