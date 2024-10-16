@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useState} from 'react';
+// import useState from "react";
 // import logo from './logo.svg';
 import './App.css';
 import "bootstrap/dist/css/bootstrap.min.css"
@@ -6,14 +7,59 @@ import "bootstrap/dist/css/bootstrap.min.css"
 
 // ZIP CODE FORM COMPONENT
 function App(){
-  return (
-      <form action="" id="searchForm">
-          <label for="zipCode">Zip Code:</label>
-          <input type="text" name="zip" id="zipCodeField"></ input>
-          <input type ="submit" value ="get weather" id="searchButton"></ input>
-      </form>
-  );
-}
+  const [zipCode, setZipCode] = useState("");
+  
+  const handleChange = (event) =>{
+    event.preventDefault();
+    setZipCode(event.target.value)
+    console.log(zipCode);
+  }
+  
+  const handleSubmit = (event) =>{
+      event.preventDefault();
+      // setZipCode(event.target.value)
+      console.log(zipCode)
+    }
+
+    return (
+      <div>
+        <form action="" id="searchForm" onSubmit={handleSubmit}>
+            <label htmlFor="zipCode">Zip Code:</label>
+            {/* user input field */}
+            <input type="text" name="zip" id="zipCodeField" onChange={handleChange}></ input>
+            {/* <input onClick={searchZip} type ="submit" value ="get weather" id="searchButton"></ input> */}
+            <input type ="submit" value ="get weather" id="searchButton"></ input>
+        </form>
+
+        <div>
+          <section>
+            <div>City</div>
+            <div id="cityName">{zipCode}</div>
+          </section>
+          <section>
+              <div>Temp</div>
+              <div id="temp"></div>
+          </section>
+        </div>
+      </div>
+    )
+  }
+
+  // function InfoDisplay([zipCode]){
+  //   // const [zipCode, setZipCode] = useState("");
+  //     return(
+  //       <div>
+  //         <section>
+  //           <div>City</div>
+  //           <div id="cityName"></div>
+  //         </section>
+  //         <section>
+  //             <div>Temp</div>
+  //             <div id="temp"></div>
+  //         </section>
+  //       </div>
+  //     )
+  //   }
 
 export { App };
 
