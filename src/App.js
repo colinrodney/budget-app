@@ -37,15 +37,16 @@ function App(){
 
     try
     {
-        let zip_code_response = await fetch(zip_code_url)
-        // let current_conditions_response = await fetch(current_codntions_url)
+        // let zip_code_response = await fetch(zip_code_url)
+        // let zip_code_data = zip_code_response.json()
+        // return zip_code_data
 
-        let zip_code_data = zip_code_response.json()
-        // let current_conditions_data = await current_conditions_response.json()
-
-        // console.log(zip_code_data)
-        // console.log(current_conditions_data)
-        return zip_code_data // Definitely must return data from this function!
+        await fetch(zip_code_url)
+          .then(response => {return response.json()})
+          .then(data =>{
+            console.log(Object.entries(data))
+          }
+          )
     }
     
     catch (error){
