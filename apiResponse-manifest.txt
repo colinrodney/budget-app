@@ -1,0 +1,6 @@
+What data fields do I need for the weather app?
+
+weather:(description/ icon)
+main:(temp (high/low) / humidity/)
+wind: (windspeed / direction)
+name: (City name)
