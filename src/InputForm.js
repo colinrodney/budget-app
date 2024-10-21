@@ -1,5 +1,6 @@
 import React from 'react';
 import {useState, useEffect} from 'react';
+import InfoDisplay from './InfoDisplay';
 import './App.css';
 
 function InputForm(){
@@ -74,8 +75,10 @@ function InputForm(){
                 {/* <input onClick={searchZip} type ="submit" value ="get weather" id="searchButton"></ input> */}
                 <input type ="submit" value ="get weather" id="searchButton"></ input>
             </form>
+
+            <InfoDisplay apiResponse={apiResponse}/>
         </>
     )
 }
 
-export default InputForm
+export default InputForm;
