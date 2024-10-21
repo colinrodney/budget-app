@@ -8,8 +8,8 @@ function InfoDisplay(){
 
   return(
     <div>
-      <p>City:{JSON.stringify(apiResponse.name)}</p>
-      <p>Temp:{JSON.stringify(x)}</p>
+      <p>City:</p>
+      <p>Temp:</p>
   </div>
   )
 }
@@ -30,4 +30,4 @@ function InfoDisplay(){
 // //     )
 // //   }
   
-  // export {InfoDisplay};
+export default InfoDisplay;

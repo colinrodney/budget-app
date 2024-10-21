@@ -2,6 +2,7 @@ import React from 'react';
 // import useState from "react";
 // import logo from './logo.svg';
 import InputForm from "./InputForm"
+import InfoDisplay from "./InfoDisplay"
 import './App.css';
 import "bootstrap/dist/css/bootstrap.min.css"
 
@@ -68,6 +69,8 @@ function WeatherApp(){
             <p>City:{JSON.stringify(apiResponse.name)}</p>
             <p>Temp:{JSON.stringify(x)}</p>
         </div> */}
+
+        <InfoDisplay />
     </>
 
   )
