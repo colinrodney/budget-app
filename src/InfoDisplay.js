@@ -15,7 +15,15 @@ function InfoDisplay(props){
     <>
       {Object.entries(props.apiResponse).map(([key, value]) =>
         // NOTE each child element rendered MUST have a unique key prop assigned!
-        <p key={key}>{JSON.stringify(key)}: {JSON.stringify(value)}</p>
+        <div>
+          {/* <p key={key}>{JSON.stringify(key)}: {JSON.stringify(value)}</p> */}
+          <p>
+            {key == "name" ?( 
+              <p>{key}: {value}</p>
+            ):(null)}
+            
+          </p>
+        </div>
       )}
     </>
   //   <div>
