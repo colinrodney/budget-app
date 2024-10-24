@@ -6,16 +6,18 @@ import "bootstrap/dist/css/bootstrap.min.css"
 
 
 function InfoDisplay(props){
-  for (const [key, value] of Object.entries(props.apiResponse)){
-    console.log(`${key} ${value}`)
-  }
+  console.log((Object.entries(props)))
+  // for (const [key, value] of Object.entries(props.apiResponse)){
+  //   console.log(`${key} ${value}`)
+  // }
 
   return(
-    <ul>
-      {/* {Object.entries((props.apiResponse) => (
-        <li>key={props.apiResponse}</li>
-      ))} */}
-    </ul>
+    <>
+      {Object.entries(props.apiResponse).map(([key, value]) =>
+        // NOTE each child element rendered MUST have a unique key prop assigned!
+        <p key={key}>{JSON.stringify(key)}: {JSON.stringify(value)}</p>
+      )}
+    </>
   //   <div>
   //     <p>City:{JSON.stringify(props.apiResponse.name)}</p>
   //     <p>Temp:{JSON.stringify(props.apiResponse.main)}</p>
