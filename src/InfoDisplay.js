@@ -1,6 +1,6 @@
-import React, {useState} from 'react';
+import React from 'react';
 // import logo from './logo.svg';
-import InputForm from "./InputForm"
+// import InputForm from "./InputForm"
 import './App.css';
 import "bootstrap/dist/css/bootstrap.min.css"
 
@@ -18,10 +18,12 @@ function InfoDisplay(props){
         <div>
           {/* <p key={key}>{JSON.stringify(key)}: {JSON.stringify(value)}</p> */}
           <p>
-            {key == "name" ?( 
-              <p>{key}: {value}</p>
-            ):(null)}
-            
+            {(key === "name") ? (
+              <p>{JSON.stringify(key)}, {JSON.stringify(value)}`</p>):(null)}
+              {(key === "weather") ? ( 
+              <p>{JSON.stringify(key)}, {JSON.stringify(value)}`</p>):(null)}
+              {(key === "main") ? ( 
+              <p>{JSON.stringify(key)}, {JSON.stringify(value)}`</p>):(null)}
           </p>
         </div>
       )}
