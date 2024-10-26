@@ -6,7 +6,9 @@ import "bootstrap/dist/css/bootstrap.min.css"
 
 
 function InfoDisplay(props){
-  console.log((Object.entries(props)))
+  // destructure props NOTE props is coming in as props.apiResponse!
+  let {main, name, weather} = props.apiResponse
+  console.log((weather))
   // for (const [key, value] of Object.entries(props.apiResponse)){
   //   console.log(`${key} ${value}`)
   // }
@@ -15,17 +17,24 @@ function InfoDisplay(props){
     <>
       {Object.entries(props.apiResponse).map(([key, value]) =>
         // NOTE each child element rendered MUST have a unique key prop assigned!
-        <div>
+        <>
           {/* <p key={key}>{JSON.stringify(key)}: {JSON.stringify(value)}</p> */}
-          <p>
-            {(key === "name") ? (
-              <p>{JSON.stringify(key)}, {JSON.stringify(value)}`</p>):(null)}
-              {(key === "weather") ? ( 
-              <p>{JSON.stringify(key)}, {JSON.stringify(value)}`</p>):(null)}
-              {(key === "main") ? ( 
-              <p>{JSON.stringify(key)}, {JSON.stringify(value)}`</p>):(null)}
-          </p>
-        </div>
+            {(key === "main" || key === "weather" || key ==="name" ) ? (
+              // current temp
+              <>{JSON.stringify(key)},{JSON.stringify(value)}</>
+             // high temp
+            ):(null)}
+          <div>
+            {/* WEATHER 
+            {(key === "weather") ? (
+              <p>{JSON.stringify(value[0].main)}</p>
+              // <p>{JSON.stringify(value[0].description)}</p>
+              )
+              :(null)
+              }
+            */}
+          </div>
+        </>
       )}
     </>
   //   <div>
