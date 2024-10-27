@@ -10,7 +10,7 @@ function InputForm(){
     const handleChange = (event) =>{
         event.preventDefault();
         setZipCode(event.target.value)
-        // console.log(zipCode);
+        console.log(zipCode);
     }
   
     const handleSubmit = (event) =>{
