@@ -1,21 +1,22 @@
 import React from 'react';
-import {useState, useEffect, useMemo} from 'react';
+import {useState, useEffect, useMemo, useRef} from 'react';
 import InfoDisplay from './InfoDisplay';
 import './App.css';
 
 function InputForm(){
-    let [zipCode, setZipCode] = useState("");
+    let [zipCode, setZipCode] = useState(``);
     let [apiResponse, setResponse] = useState({});
+    const isMounted = useRef(false)
 
-    const handleChange = (event) =>{
-        event.preventDefault();
-        setZipCode(event.target.value)
-        console.log(zipCode);
-    }
+    // const handleChange = (event) =>{
+    //     event.preventDefault();
+    //     setZipCode(event.target.value)
+    //     // console.log(zipCode);
+    // }
   
     const handleSubmit = (event) =>{
         event.preventDefault();
-        setZipCode(event.target.value)
+        // setZipCode(event.target.value)
         console.log(zipCode)
         // getWeatherInfo(zipCode)
     }
@@ -63,26 +64,40 @@ function InputForm(){
     },[apiResponse])
 
 
-        // // useEffect
+    // useEffect - fetch data from API
     useEffect(() =>{
-        // fetch(`https://api.openweathermap.org/data/2.5/weather?zip=${zipCode}&appid=8fcd14240be7520f5b8428765ed5943b&units=imperial`)
+        fetch(`https://api.openweathermap.org/data/2.5/weather?zip=${zipCode}&appid=8fcd14240be7520f5b8428765ed5943b&units=imperial`)
         // let [apiResponse, setResponse] = useState("");
-        fetch(`https://jsonplaceholder.typicode.com/todos/1`)
+        // fetch(`https://jsonplaceholder.typicode.com/todos/1`)
         .then(response => response.json())
         .then(data => setResponse(data))
-        // console.log(apiResponse)
+        console.log(apiResponse)
     },[])
+
+    // useEffect - render IndoDisplay component based on useRef/ isMounted.current
+    // useEffect(() =>{
+    //     if (isMounted.current){
+    //         return (
+    //         <InfoDisplay apiResponse={apiResponse}/>
+    //     )
+    //     } else {
+    //         console.log(isMounted.current)
+    //         isMounted.current = true;
+    //         console.log(isMounted.current)
+    //     }
+    // },[])
 
     return(
         <>
             <form action="" id="searchForm" onSubmit={handleSubmit}>
                 <label htmlFor="zipCode">Zip Code:</label>
                 {/* user input field */}
-                <input type="text" name="zip" id="zipCodeField" onChange={handleChange}></ input>
+                <input type="text" name="zip" value={zipCode} id="zipCodeField" onChange={(event) =>setZipCode(event.target.value)}></ input>
                 {/* <input onClick={searchZip} type ="submit" value ="get weather" id="searchButton"></ input> */}
                 <input type ="submit" value ="get weather" id="searchButton"></ input>
             </form>
 
+            {/* \this might end up moved into a 2nd useEffect hook... */}
             <InfoDisplay apiResponse={apiResponse}/>
         </>
     )
