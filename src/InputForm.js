@@ -8,17 +8,21 @@ function InputForm(){
     let [apiResponse, setResponse] = useState({});
     const isMounted = useRef(false)
 
-    // const handleChange = (event) =>{
-    //     event.preventDefault();
-    //     setZipCode(event.target.value)
-    //     // console.log(zipCode);
-    // }
+    const handleChange = (event) =>{
+        event.preventDefault();
+        console.log(event.target.value);
+        setZipCode(event.target.value)
+    }
   
     const handleSubmit = (event) =>{
         event.preventDefault();
         // setZipCode(event.target.value)
-        console.log(zipCode)
+        // console.log(zipCode)
         // getWeatherInfo(zipCode)
+
+        fetch(`https://api.openweathermap.org/data/2.5/weather?zip=${zipCode}&appid=8fcd14240be7520f5b8428765ed5943b&units=imperial`)
+        .then(response => response.json())
+        .then(data => setResponse(data))
     }
 
     // async function getWeatherInfo(zipCode){
@@ -65,21 +69,19 @@ function InputForm(){
 
 
     // useEffect - fetch data from API
-    useEffect(() =>{
-        fetch(`https://api.openweathermap.org/data/2.5/weather?zip=${zipCode}&appid=8fcd14240be7520f5b8428765ed5943b&units=imperial`)
-        // let [apiResponse, setResponse] = useState("");
-        // fetch(`https://jsonplaceholder.typicode.com/todos/1`)
-        .then(response => response.json())
-        .then(data => setResponse(data))
-        console.log(apiResponse)
-    },[])
-
+    // useEffect(() =>{
+    //     fetch(`https://api.openweathermap.org/data/2.5/weather?zip=${zipCode}&appid=8fcd14240be7520f5b8428765ed5943b&units=imperial`)
+    //     // let [apiResponse, setResponse] = useState("");
+    //     // fetch(`https://jsonplaceholder.typicode.com/todos/1`)
+    //     .then(response => response.json())
+    //     .then(data => setResponse(data))
+    // },[])
+    
     // useEffect - render IndoDisplay component based on useRef/ isMounted.current
     // useEffect(() =>{
     //     if (isMounted.current){
-    //         return (
-    //         <InfoDisplay apiResponse={apiResponse}/>
-    //     )
+    //         console.log(apiResponse)
+    //         // InfoDisplay(apiResponse)
     //     } else {
     //         console.log(isMounted.current)
     //         isMounted.current = true;
@@ -92,7 +94,7 @@ function InputForm(){
             <form action="" id="searchForm" onSubmit={handleSubmit}>
                 <label htmlFor="zipCode">Zip Code:</label>
                 {/* user input field */}
-                <input type="text" name="zip" value={zipCode} id="zipCodeField" onChange={(event) =>setZipCode(event.target.value)}></ input>
+                <input type="text" name="zip" id="zipCodeField" onChange={handleChange}></ input>
                 {/* <input onClick={searchZip} type ="submit" value ="get weather" id="searchButton"></ input> */}
                 <input type ="submit" value ="get weather" id="searchButton"></ input>
             </form>

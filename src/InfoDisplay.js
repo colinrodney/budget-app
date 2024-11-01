@@ -22,23 +22,23 @@ function InfoDisplay(props){
           {/* <p key={key}>{JSON.stringify(key)}: {JSON.stringify(value)}</p> */}
 
           {/* CITY NAME/ Location */}
-            {(key ==="name" || !key === `undefined`) ? (
+            {(key === `name`) ? (
               <div key={key}>
-                <p>City Name: {JSON.stringify(value)}</p>
+                <p>City {JSON.stringify(value)}</p>
               </div>
             ):(null)}
 
             {/* MAIN (temp/ high/lo temp/ humidity etc) */}
-            {/* {(key === "main" || !key === `undefined` ) ? (
+            {(key === "main" || !key === `undefined` ) ? (
               <div key={key}>
                 <p>Current Temp: {JSON.stringify(main.temp)}</p>
                 <p>High Temp: {JSON.stringify(main.temp_max)}</p>
                 <p>Low Temp: {JSON.stringify(main.temp_min)}</p>
               </div>
-            ):(null)} */}
+            ):(null)}
 
             {/* WEATHER DESCRIPTION */}
-            {/* {(key === "weather" || !key === `undefined`) ? (
+            {(key === "weather" || !key === `undefined`) ? (
               <div key={key}>
                 <p>
                   Current Condition:{JSON.stringify(weather[0].main)}
@@ -49,14 +49,14 @@ function InfoDisplay(props){
                 </p>
                 
               </div>
-            ):(null)} */}
+            ):(null)}
             
             {/* WIND INFO */}
-            {/* {(key === "wind" || !key === `undefined`) ? (
+            {(key === "wind" || !key === `undefined`) ? (
               <div key={key}>
                 <p>Wind Speed: {JSON.stringify(wind.speed)}</p>
               </div>
-            ):(null)} */}
+            ):(null)}
 
 
           <div>
