@@ -4,8 +4,8 @@ import InfoDisplay from './InfoDisplay';
 import './App.css';
 
 function InputForm(){
-    let [zipCode, setZipCode] = useState(``);
-    let [apiResponse, setResponse] = useState({});
+    // let [zipCode, setZipCode] = useState(``);
+    // let [apiResponse, setResponse] = useState({});
     const isMounted = useRef(false)
 
     const handleChange = (event) =>{
@@ -100,7 +100,7 @@ function InputForm(){
             </form>
 
             {/* \this might end up moved into a 2nd useEffect hook... */}
-            <InfoDisplay apiResponse={apiResponse}/>
+            {/* <InfoDisplay apiResponse={apiResponse}/> */}
         </>
     )
 }

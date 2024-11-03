@@ -29,16 +29,16 @@ function InfoDisplay(props){
             ):(null)}
 
             {/* MAIN (temp/ high/lo temp/ humidity etc) */}
-            {(key === "main" || !key === `undefined` ) ? (
+            {/* {(key === "main" || !key === `undefined` ) ? (
               <div key={key}>
                 <p>Current Temp: {JSON.stringify(main.temp)}</p>
                 <p>High Temp: {JSON.stringify(main.temp_max)}</p>
                 <p>Low Temp: {JSON.stringify(main.temp_min)}</p>
               </div>
-            ):(null)}
+            ):(null)} */}
 
             {/* WEATHER DESCRIPTION */}
-            {(key === "weather" || !key === `undefined`) ? (
+            {/* {(key === "weather" || !key === `undefined`) ? (
               <div key={key}>
                 <p>
                   Current Condition:{JSON.stringify(weather[0].main)}
@@ -49,14 +49,14 @@ function InfoDisplay(props){
                 </p>
                 
               </div>
-            ):(null)}
+            ):(null)} */}
             
             {/* WIND INFO */}
-            {(key === "wind" || !key === `undefined`) ? (
+            {/* {(key === "wind" || !key === `undefined`) ? (
               <div key={key}>
                 <p>Wind Speed: {JSON.stringify(wind.speed)}</p>
               </div>
-            ):(null)}
+            ):(null)} */}
 
 
           <div>
