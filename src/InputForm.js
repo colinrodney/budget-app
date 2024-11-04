@@ -4,9 +4,14 @@ import InfoDisplay from './InfoDisplay';
 import './App.css';
 
 function InputForm(){
-    // let [zipCode, setZipCode] = useState(``);
-    // let [apiResponse, setResponse] = useState({});
-    const isMounted = useRef(false)
+    let [zipCode, setZipCode] = useState(``);
+    let [apiResponse, setResponse] = useState({});
+    const ApiState = useRef({})
+    
+    useEffect(() =>{
+        ApiState.current = apiResponse;
+        console.log(ApiState.current)
+    })
 
     const handleChange = (event) =>{
         event.preventDefault();
@@ -16,10 +21,6 @@ function InputForm(){
   
     const handleSubmit = (event) =>{
         event.preventDefault();
-        // setZipCode(event.target.value)
-        // console.log(zipCode)
-        // getWeatherInfo(zipCode)
-
         fetch(`https://api.openweathermap.org/data/2.5/weather?zip=${zipCode}&appid=8fcd14240be7520f5b8428765ed5943b&units=imperial`)
         .then(response => response.json())
         .then(data => setResponse(data))
@@ -63,9 +64,9 @@ function InputForm(){
     // }
     
     //  useMemo 
-    const responseCached = useMemo (() =>{
-        return {apiResponse}
-    },[apiResponse])
+    // const responseCached = useMemo (() =>{
+    //     return {apiResponse}
+    // },[apiResponse])
 
 
     // useEffect - fetch data from API
