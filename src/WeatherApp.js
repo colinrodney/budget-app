@@ -23,10 +23,9 @@ function WeatherApp(){
     <>
       <InputForm />
       {/* <InfoDisplay apiResponse={apiResponse}/> */}
-      <InfoDisplay />
       
       <LoadingComponent />
-      {/* <InfoDisplay response={apiResponse} /> */}
+      <InfoDisplay />
     </>
   ) 
 }

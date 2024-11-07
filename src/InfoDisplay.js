@@ -6,6 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css"
 
 
 function InfoDisplay(props={}){
+  console.log(props)
   // destructure props NOTE props is coming in as props.apiResponse!
   // let {main, name, weather, wind } = props.apiResponse
   // console.log({main, name, weather, wind})
