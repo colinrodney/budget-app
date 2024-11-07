@@ -5,10 +5,10 @@ import './App.css';
 import "bootstrap/dist/css/bootstrap.min.css"
 
 
-function InfoDisplay(props){
+function InfoDisplay(props={}){
   // destructure props NOTE props is coming in as props.apiResponse!
-  // let {main, name, weather, wind } = props.apiResponse
-  // console.log({main, name, weather, wind})
+  let {main, name, weather, wind } = props.apiResponse
+  console.log({main, name, weather, wind})
   // console.log(props.apiResponse)
   // for (const [key, value] of Object.entries(props.apiResponse)){
   //   console.log(`${key} ${value}`)
