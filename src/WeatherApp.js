@@ -4,7 +4,7 @@ import {useState, useEffect, useMemo, useRef} from 'react';
 // import logo from './logo.svg';
 import InputForm from "./InputForm"
 import InfoDisplay from "./InfoDisplay"
-import LoadingComponent from "./LoadingComponent"
+// import LoadingComponent from "./LoadingComponent"
 import './App.css';
 import "bootstrap/dist/css/bootstrap.min.css"
 
@@ -25,7 +25,7 @@ function WeatherApp(){
       {/* <InfoDisplay apiResponse={apiResponse}/> */}
       <InfoDisplay />
       
-      <LoadingComponent />
+      {/* <LoadingComponent /> */}
       {/* <InfoDisplay response={apiResponse} /> */}
     </>
   ) 

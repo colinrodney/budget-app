@@ -61,7 +61,7 @@ function InputForm(){
             </form>
 
             {/* \this might end up moved into a 2nd useEffect hook... */}
-            <InfoDisplay apiResponse={apiResponse}/>
+            {<InfoDisplay apiResponse={apiResponse}/>}
         </>
     )
 }
