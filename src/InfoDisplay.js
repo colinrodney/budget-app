@@ -6,33 +6,48 @@ import "bootstrap/dist/css/bootstrap.min.css"
 
 
 function InfoDisplay(props){
-  const { apiResponse = {} } = props
+  const {apiResponse = {}} = props
   // destructure props - NOTE props is coming in as props.apiResponse!
 
   
   // let {main, name, weather, wind } = props
   // console.log({main, name, weather, wind})
-  if (apiResponse.main){
-    console.log(apiResponse.main)
+  // if (apiResponse === ``){
+  //   console.log(`No apiResponse`)
   
-    // return(
-    //   <LoadingComponent />
-    // )
-    // console.log(`awaiting info...`)
-  }
-  else{
-    console.log(<LoadingComponent />)
+  //   // return(
+  //   //   <LoadingComponent />
+  //   // )
+  //   // console.log(`awaiting info...`)
+  // }  else{
+  //   // console.log(<LoadingComponent />)
+  //   console.log(`apiResponse present`)
+  // }
+
+  if (apiResponse.main){
+  
+    return(
+      <div>
+          {JSON.stringify(apiResponse.main)}
+        </div>
+    )
+  }  else{
+    return(
+      <LoadingComponent />
+    )
   }
 
-  return(
-    <>
-      {/* {Object.entries({ apiResponse }).map(([key, value]) =>{
-        <p key={key}>{JSON.stringify(value)}</p>
-      })} */}
+  // return(
+  //   <>
 
-      {JSON.stringify(apiResponse.main)}
-    </>
-  )
+  //     {/* {Object.entries({apiResponse}).map(([key, value]) =>(
+  //       <div key={key}>
+  //         {JSON.stringify(value)}
+  //       </div>
+  //     ))} */}
+
+  //     {/* {JSON.stringify(apiResponse.main)} */}
+  //   </>
+  // )
 }
-
 export default InfoDisplay;
